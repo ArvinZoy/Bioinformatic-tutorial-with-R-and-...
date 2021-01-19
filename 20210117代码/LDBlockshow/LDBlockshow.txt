@@ -1,0 +1,42 @@
+
+
+/home/test2/software/LDBlockShow-master/bin/LDBlockShow -InVCF /home/test2/software/Test.vcf.gz   -OutPut  out   -Region  chr11:24100000:24200000  -SeleVar 2
+
+./LDBlockShow -InVCF /home/test2/software/Test.vcf.gz   -OutPut  out   -Region  chr11:24100000:24200000  -SeleVar 2
+
+
+
+
+
+
+
+
+
+
+
+
+Example 1) show Figure with Defaut LD Blocks
+#../../bin/LDBlockShow   -InVCF Test.vcf.gz   -OutPut  out   -Region  chr11:24100000:24200000  -OutPng -SeleVar 1
+../../bin/LDBlockShow   -InVCF Test.vcf.gz   -OutPut  out   -Region  chr11:24100000:24200000  -OutPng -SeleVar 2
+# [-SeleVar 1] is D',[-SeleVar 2] is RR ,[-SeleVar 3] are RR and D',[-SeleVar 4] are D' and RR # the default is D'
+
+Example 2) Output LDHeatMap combined with GWAS statistics
+#../../bin/LDBlockShow  -InVCF ../Example1/Test.vcf.gz -OutPut out -Region chr11:24100000:24200000 -InGWAS gwas.pvalue  -OutPng
+../../bin/LDBlockShow   -InVCF ../Example1/Test.vcf.gz -OutPut out -Region chr11:24100000:24200000 -InGWAS gwas.pvalue  -OutPng  -SeleVar 4
+## you can run ShowLDSVG with more parameters to optimize the plot  ##
+# ../../bin/ShowLDSVG    -InPreFix       out     -OutPut out     -InGWAS gwas.pvalue -Cutline  7  -ShowNum -PointSize 3 -OutPng
+
+Example 3) show Figure with genomic annotation
+#../../bin/LDBlockShow   -InVCF   ../Example1/Test.vcf.gz    -OutPut  out -InGWAS gwas.pvalue  -InGFF  In.gff   -Region  chr11:24100000:24200000 -OutPng -SeleVar 1   
+../../bin/LDBlockShow   -InVCF   ../Example1/Test.vcf.gz    -OutPut  out -InGWAS gwas.pvalue  -InGFF  In.gff   -Region  chr11:24100000:24200000 -OutPng -SeleVar 2
+## you can run ShowLDSVG with more parameters to optimize the plot  ##
+#../../bin/ShowLDSVG    -InPreFix out -OutPut out.svg -InGWAS gwas.pvalue  -Cutline  7  -InGFF  In.gff  -crGene yellow:lightblue:pink:orange -showNum -OutPng
+#../../bin/ShowLDSVG    -InPreFix       out     -OutPut out.svg         -InGFF  In.gff
+#../../bin/ShowLDSVG    -InPreFix out -OutPut out.svg -InGWAS gwas.pvalue  -Cutline  7  -InGFF  In.gff  -crGene yellow:lightblue:pink:orange -showNum -OutPng  -SpeSNPName Spe.snp  -ShowGWASSpeSNP
+
+Example 4) show Figure (heatmap+Annotation+GWAS similar to LocusZoom)
+../../bin/LDBlockShow   -InVCF   ../Example1/Test.vcf.gz    -OutPut  out -InGWAS ../Example3/gwas.pvalue  -InGFF  ../Example3/In.gff   -Region  chr11:24100000:24200000 -OutPng -SeleVar 4 -TopSite
+#  [-SeleVar 3]: GWAS with RR ,heatmap with D'.  [-SeleVar 4]: GWAS with D' ,heatmap with RR.
+## you can run ShowLDSVG with more parameters to optimize the plot with para [-TopSite]  ##
+../../bin/ShowLDSVG    -InPreFix out -OutPut out.svg -InGWAS ../Example3/gwas.pvalue  -Cutline  7  -InGFF  ../Example3/In.gff  -crGene yellow:lightblue:pink:orange -showNum -OutPng  -SpeSNPName ../Example3/Spe.snp  -ShowGWASSpeSNP  -TopSite
+#../../bin/ShowLDSVG    -InPreFix out -OutPut out.svg -InGWAS ../Example3/gwas.pvalue  -Cutline  7  -InGFF ../Example3/In.gff  -crGene yellow:lightblue:pink:orange -showNum -OutPng  -SpeSNPName ../Example3/Spe.snp  -ShowGWASSpeSNP  -TopSite  chr11:24142660
