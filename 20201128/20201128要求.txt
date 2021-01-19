@@ -1,0 +1,34 @@
+¡ı ÀΩı	÷‹ÊºÊ•	¡ı√ÌÀ…	Õı”Ò¡˙	¡ıŒ∞	’‘÷æ¿§	∂≈√Œø…	ÕÙœ»≈Ù	Ω™ƒ˛º—	¿Óπ˙Â˚
+1	2	3	4	5	6	7	8	9	10
+Ba	Bg	Ba	Af	Ba	Af	Bi	Bg	Aa	Ab
+Ad	Bh	Ad	Ag	Ad	Ag	Bj	Bh	Af	Ac
+Ae	Bk	Ae	Au	Ae	Au	Bl	Bk	Ag	Aj
+Ah	Br	Ah	Av	Ah	Av	Bm	Br	Au	Ak
+Ai	Bt	Ai	Aw	Ai	Aw	Bn	Bt	Av	Al
+Am	Bv	Am	Az	Am	Az	Bo	Bv	Aw	An
+Ao	Bw	Ao	Bc	Ao	Bc	Bq	Bw	Az	
+Ap	Bp	Ap	Bd	Ap	Bd	Bs	Bp	Bc	
+Aq	Bi	Aq	Be	Aq	Be	Bu		Bd	
+Ar	Bj	Ar	Bf	Ar	Bf	Bx		Be	
+As	Bl	As	Ab	As	Ab	By		Bf	
+At	Bm	At	Ac	At	Ac	Cb			
+Ax	Bn	Ax	Aj	Ax	Aj				
+Bb	Bo	Bb	Ak	Bb	Ak				
+Ca	Bq	Ca	Al	Ca	Al				
+Af	Bs	Bg	An		An				
+Ag	Bu	Bh	Bi		Aa				
+Au	Bx	Bk	Bj						
+Av	By	Br	Bl						
+Aw	Cb	Bt	Bm						
+Az		Bv	Bn						
+Bc		Bw	Bo						
+Bd		Bp	Bq						
+Be			Bs						
+Bf			Bu						
+Ab			Bx						
+Ac			By						
+Aj			Cb						
+Ak			Aa						
+Al									
+An									
+Aa									
