@@ -1,0 +1,40 @@
+setwd("F:\\实验\\关联分析\\15年玉溪GWAS-161011\\GWAS结果\\亚群\\304_ind\\304_ind_conditional_GWAS_results")
+
+Ind_results <- read.csv("340_ind_conditioinal_CMLM.GWAS.Results.csv",header=T)
+
+chr1<- subset(Ind_results,Chromosome=="1")
+chr2<- subset(Ind_results,Chromosome=="2")
+chr3<- subset(Ind_results,Chromosome=="3")
+chr4<- subset(Ind_results,Chromosome=="4")
+chr5<- subset(Ind_results,Chromosome=="5")
+chr6<- subset(Ind_results,Chromosome=="6")
+chr7<- subset(Ind_results,Chromosome=="7")
+chr8<- subset(Ind_results,Chromosome=="8")
+chr9<- subset(Ind_results,Chromosome=="9")
+chr10<- subset(Ind_results,Chromosome=="10")
+chr11<- subset(Ind_results,Chromosome=="11")
+chr12<- subset(Ind_results,Chromosome=="12")
+
+write.table(chr1, file = "340_ind_conditioinal_GWAS.Results_chr1.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr2, file = "340_ind_conditioinal_GWAS.Results_chr2.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr3, file = "340_ind_conditioinal_GWAS.Results_chr3.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr4, file = "340_ind_conditioinal_GWAS.Results_chr4.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr5, file = "340_ind_conditioinal_GWAS.Results_chr5.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr6, file = "340_ind_conditioinal_GWAS.Results_chr6.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr7, file = "340_ind_conditioinal_GWAS.Results_chr7.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr8, file = "340_ind_conditioinal_GWAS.Results_chr8.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr9, file = "340_ind_conditioinal_GWAS.Results_chr9.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr10, file = "340_ind_conditioinal_GWAS.Results_chr10.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr11, file = "340_ind_conditioinal_GWAS.Results_chr11.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+write.table(chr12, file = "340_ind_conditioinal_GWAS.Results_chr12.csv", append = FALSE, sep = " ",eol = "\n", na = "NA", dec = ".", row.names = TRUE,col.names = TRUE, qmethod = c("escape", "double"),fileEncoding = "")
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+# ===============================
+# R 6th class
+# 20201031
+# Designed by Zhuxiaoyang
+# ===============================
+# 相关性分析及作图
+install.packages("PerformanceAnalytics")
+library(PerformanceAnalytics)
+chart.Correlation(states, method = "pearson")
+#添加直方图散点图和p值
+#显示相关系数大小、相关系数显著性检验p值，变量的直方图和变量间的散点图
+#列出待计算的变量
+mydata=mtcars[c('mpg','cyl','disp','hp','drat')]
+#绘制相关系数矩阵图
+chart.Correlation(mydata,histogram=TRUE,pch=19)
+
+# 直方图
+hist()
+lines()
+data(mtcars)
+random <- rnorm(100,20,5)
+data <- sample(random, size=500, replace=TRUE)
+par(mfrow=c(2,1),mar=c(4,6,4,4))
+hist(data, xlab="Num",ylab="Freq",main="hist",cex.lab=1,freq=F,ylim=c(0,0,1))
+
+mean_data <- mean(data,rm.na=T)
+sd_data <- sd(data)
+
+data_2 <- seq(from=min(data), to=max(data), by=0.1)
+# 添加数据特征的正态曲线
+lines(x=data_2, y=dnorm(data_2,mean_data, sd_data), lty=2,col=2)
+# 添加核密度曲线
+lines(density(data), lty=4, col=4)
+plot(density(data), type="l", main="", xlab="Num", ylab="density")
+
+# 添加数据地毯
+rug(jitter(data), side=1, col=2)
+# 恢复绘图参数
+par(olddraw)
+#==================================================
+# simple histogram                                                        
+hist(mtcars$mpg) #未指定任何选项时的默认图形
+
+# colored histogram with specified number of bins        
+hist(mtcars$mpg, 
+     breaks=12, #分组个数
+     col="red",  #红色
+     xlab="Miles Per Gallon", # x轴标签
+     main="Colored histogram with 12 bins")# 标题
+
+# colored histogram with rug plot, frame, and specified number of bins 
+hist(mtcars$mpg, 
+     freq=FALSE, 
+     breaks=12, 
+     col="red", 
+     xlab="Miles Per Gallon", 
+     main="Histogram, rug plot, density curve")  
+rug(jitter(mtcars$mpg)) 
+lines(density(mtcars$mpg), col="blue", lwd=2)
+
+# histogram with superimposed normal curve (Thanks to Peter Dalgaard)  
+x <- mtcars$mpg 
+h<-hist(x, 
+        breaks=12, 
+        col="red", 
+        xlab="Miles Per Gallon", 
+        main="Histogram with normal curve and box") 
+xfit<-seq(min(x),max(x),length=40) 
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
+yfit <- yfit*diff(h$mids[1:2])*length(x) 
+lines(xfit, yfit, col="blue", lwd=2)
+box()
+
+d <- density(mtcars$mpg) # returns the density data  
+plot(d) # plots the results 
+
+d <- density(mtcars$mpg)                                  
+plot(d, main="Kernel Density of Miles Per Gallon")       
+polygon(d, col="red", border="blue")                     
+rug(mtcars$mpg, col="brown") 
+
+
+
+

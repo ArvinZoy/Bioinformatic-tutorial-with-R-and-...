@@ -1,0 +1,25 @@
+setwd("F:\\实验\\关联分析\\14年北京GWAS\\15年北京关联分析_Tassel\\Tassel_GWAS\\mlm-kinship0.995-pc1-采用模型\\曼哈顿图绘制")
+
+#pdf("group7_116_lines_manhattan_all.pdf");
+pdf(file="bj_all_qtl.pdf", bg="transparent")
+#png(file="group1_all_4.png", bg="transparent")
+par(mfrow=c(3,1),mar = c(3.5,4,1.5,2));
+
+#group1 曼哈顿图
+a<-read.table("pca1_kinship0.995_mlm1_manhattan_0.1.txt",head=F);
+a[,5]=as.character(a[,5]);
+a[,4]=-log10(a[,4]);
+
+plot(a[,1],a[,4],col=a[,5],pch=20,cex=1,las=1,lab=c(5,3,12),mgp=c(2,1,0),xaxs="i",yaxs="i",ylim=c(1,6),xlab=" Chromosome",ylab="-log10(P)",bty="l",axes=F, main =""); 
+axis(at = c(0,43250000,79168000,115562000,151046000,180984000,212212000,241890000,270314000,293270000,316458000,345458000,372970000),labels =FALSE,tick = F,lwd = 2,side=1,mgp=c(2.5,0,0));
+axis(at = c(21625000,61209000,97365000,133304000,166015000,196598000,227051000,256102000,281792000,304864000,330958000,359214000),labels =c(1:12),tick = F,tcl=0,lwd = 2,side=1,mgp=c(3.0,0.5,0),cex.axis = 1.3);
+axis(2,mgp = c(3.0,0.8,0),at = c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14),tick =T,las =1,tcl=-0.25,lwd=2,cex.axis =1.2); 
+abline(h=4,lwd=1,lty = 2,col="black")
+##标注group1显著关联的区段
+new_qtl<- read.table("bj_qtl_new_160k.txt",header = T,sep="\t")
+reported_qtl<- read.table("bj_qtl_reported_160k.txt",header = T,sep="\t")
+
+points(new_qtl[,1],new_qtl[,2],col=("green"),pch=20,cex=1) 
+points(reported_qtl[,1],reported_qtl[,2],col=("purple"),pch=20,cex=1) 
+
+dev.off()

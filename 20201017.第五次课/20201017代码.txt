@@ -1,0 +1,72 @@
+# ===============================
+# R 5th class
+# 20201017
+# Designed by Zhuxiaoyang
+# ===============================
+# 相关性分析及作图
+
+cor()
+
+library(corrplot)
+# 加载数据集
+data(mtcars)
+head(mtcars)
+# 计算相关系数
+M <- cor(mtcars)
+## 设置不同系列颜色
+col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white", "cyan", "#007FFF", "blue","#00007F"))
+col2 <- colorRampPalette(c("#67001F", "#B2182B", "#D6604D", "#F4A582", "#FDDBC7", "#FFFFFF", "#D1E5F0", "#92C5DE","#4393C3", "#2166AC", "#053061"))
+col3 <- colorRampPalette(c("red", "white", "blue"))
+col4 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "#7FFF7F", "cyan", "#007FFF", "blue", "#00007F"))
+wb <- c("white", "black")
+# methold参数设定不同展示方式
+corrplot(M) #默认 methold="circle"
+corrplot(M, method = "ellipse")
+corrplot(M, method = "pie")
+corrplot(M, method = "color")
+corrplot(M, method = "number")
+
+# col = "black"设定颜色为黑色, cl.pos = "n"设定颜色图例不展示
+corrplot(M, method = "number", col = "black", cl.pos = "n")
+
+# order参数设定不同展示顺序，默认order="orginal"以原始顺序展示
+corrplot(M, order = "AOE")
+
+# addCoef.col = "grey"添加相关系数并设定颜色为grey
+corrplot(M, order = "AOE", addCoef.col = "grey")
+
+# col = col1(20)设定20种颜色
+corrplot(M, order = "AOE", col = col1(20), addCoef.col = "grey")
+
+# 更改order = "FPC"
+corrplot(M, order = "FPC", col = col2(200))
+
+# 更改order = "hclust"
+corrplot(M, order = "hclust", col = col3(100))
+
+## 设定col = wb
+corrplot(M, col = wb, order = "AOE", outline = TRUE, cl.pos = "n")
+
+
+# 多图组和## circle + ellipse
+# type参数设定展示类型，默认type="full"展示全部
+corrplot(M, order = "AOE", type = "upper")
+
+# tl.pos = "d"设定文本标签展示在对角线
+corrplot(M, order = "AOE", type = "upper", tl.pos = "d")
+# add = TRUE在已有的图形上添加其他图形
+corrplot(M, add = TRUE, type = "lower", method = "ellipse", order = "AOE", diag = FALSE, tl.pos = "n", cl.pos = "n")
+
+
+## visualize a  matrix in [0, 1]
+# cl.lim = c(0,1)设定图例颜色范围
+corrplot(abs(M), order = "AOE", cl.lim = c(0,1))
+
+
+
+
+
+
+
+
+

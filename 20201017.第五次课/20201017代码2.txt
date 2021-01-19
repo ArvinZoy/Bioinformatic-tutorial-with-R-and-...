@@ -1,0 +1,29 @@
+
+setwd("F:\\20201017.第五次课")
+
+phe <- read.table("nam_pheno_part_1.txt", header = T, stringsAsFactors = F)
+dim(phe)
+na.omit(phe[,2])
+na.omit(phe[,2])[1:length(na.omit(phe[,2]))]
+aa <- data.frame(NN = na.omit(phe[,2])[1:length(na.omit(phe[,2]))])
+phe_2 <- phe[which(phe[,2] %in% aa[,1]),]
+# 
+cor(phe_2[,-(1:5)]) # 行不通
+phe_3 <- phe_2[,-(1:5)]
+phe_4 <- na.omit(phe_3)
+corrplot::corrplot(cor(phe_4))
+
+Matrix_1 <- matrix(NA, ncol = 14, nrow = 14)
+Matrix_2 <- matrix(NA, ncol=14, nrow=14)
+colnames(Matrix_1) <- colnames(phe_3)
+rownames(Matrix_1) <- colnames(phe_3)
+for(i in 1:ncol(phe_3)){
+  #i=1
+  for(j in 1:ncol(phe_3)){
+    #j=1
+    Matrix_1[i,j] <- cor.test(phe_3[,i], phe_3[,j])$estimate
+    Matrix_2[i,j] <- cor.test(phe_3[,i], phe_3[,j])$p.value
+  }
+}
+corrplot::corrplot(Matrix_1, addCoef.col = "grey")
+

@@ -1,0 +1,24 @@
+setwd("I:\\关联分析候选基因分析")
+X<- read.table("group6_chr1_39829083_1.2MB_manhattan.txt",header = T,sep="\t")
+Y<- read.table("group6_chr1_39829083_2MB_manhattan_significant_manhattan.txt",header = T,sep="\t")
+
+pdf("group6_chr1_39829083_2MB_manhattan.pdf");
+par(mfrow=c(3,2.5),mar = c(3.5,4,1.5,2));
+plot(X[,1],X[,2],
+     pch=20,
+     xaxs="i",yaxs="i",
+     axes = F,
+     col= ("blue"),
+     cex=1,
+     bty="l",
+     xlab="",
+     ylab="-log10(P observed)",
+     tck=-0.03,                   #刻度线的长度
+     yaxs="r",                     #坐标轴y的间隔设定方式
+     mgp=c(2, 1, 4))
+box(bty="l",lwd=1)
+axis(at = c(39400073,39600096,39800033,40000012,40200098,40400006,40599918),labels =c("39.4","39.6","39.8","40.0","40.2","40.4","40.6 Mb"),tck=-0.03,lwd = 1,side=1,cex.axis = 1,mgp=c(4, 0.5, 0));
+axis(2,at = c(0,1,2,3,4,5,6,7,8),tck=-0.03,tick =T,las =1,tcl=-0.25,lwd=1,cex.axis =1,mgp=c(4, 0.5, 0))
+points(Y[,1],Y[,2],col=("red"),pch=20,cex=1)
+abline(h=4.2,lwd=2,col="gray",lty=5)
+dev.off()
